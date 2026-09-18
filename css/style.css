@@ -17,6 +17,14 @@
   background: #19194f;
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 
 /* =========================
    中央コンテンツ
@@ -1414,12 +1422,17 @@
 .site-footer {
   width: 100%;
   margin-top: 70px;
-  padding: 75px 20px 80px;
+  padding: 75px 0 80px;
 
   background: #19194f;
   color: #ffffff;
 
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .site-footer h2 {
@@ -1431,6 +1444,9 @@
   font-size: 27px;
   font-weight: 800;
   letter-spacing: 0.04em;
+
+  width: 100%;
+  text-align: center;
 }
 
 .site-footer p {
@@ -1443,6 +1459,9 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1.7;
+
+  width: 100%;
+  text-align: center;
 }
 
 .site-footer p + p {
