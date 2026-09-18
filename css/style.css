@@ -1,0 +1,1408 @@
+/* =========================
+   WELCOME PAGE
+========================= */
+
+.welcome-page {
+  background: #19194f;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.welcome {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #19194f;
+}
+
+
+/* =========================
+   中央コンテンツ
+========================= */
+
+.welcome-content {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  padding: 0 24px;
+
+  text-align: center;
+  z-index: 2;
+}
+
+
+/* WELCOME */
+
+.welcome-content h1 {
+  margin: 0;
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(38px, 10vw, 52px);
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+
+/* 東洋大学 JAVELINAUTS */
+
+.welcome-content p {
+  margin: 22px 0 38px;
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================
+   ENTER BUTTON
+========================= */
+
+.enter-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 150px;
+
+  padding: 15px 30px;
+
+  color: #ffffff;
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+
+  transition:
+    color 0.25s ease,
+    letter-spacing 0.25s ease;
+}
+
+
+/* 矢印 */
+
+.enter-button::after {
+  content: "→";
+
+  margin-left: 16px;
+
+  font-size: 15px;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* PCでカーソルを合わせた時 */
+
+.enter-button:hover {
+  letter-spacing: 0.28em;
+}
+
+
+/* 矢印だけ右へ動かす */
+
+.enter-button:hover::after {
+  transform: translateX(5px);
+}
+
+
+/* スマホで押した瞬間 */
+
+.enter-button:active {
+  opacity: 0.6;
+}
+
+
+/* =========================
+   左下ロゴ
+========================= */
+
+.welcome-logo {
+  position: absolute;
+
+  width: 560px;
+  max-width: none;
+
+  left: -205px;
+  bottom: -205px;
+
+  z-index: 1;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ========================================
+   UNIFORMS LIST PAGE
+======================================== */
+
+.uniforms-page {
+  margin: 0;
+  background: #ffffff;
+  color: #111111;
+}
+
+
+/* ページ全体 */
+
+.uniforms-container {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: 52px 0 70px;
+}
+
+
+/* タイトル */
+
+/* ========================================
+   UNIFORMS HEADER
+======================================== */
+
+.uniforms-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  margin-bottom: 42px;
+
+  text-align: center;
+}
+
+
+.uniforms-title {
+  margin: 0;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 27px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.06em;
+}
+
+
+.uniforms-subtitle {
+  margin: 12px 0 0;
+
+  color: #777777;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.42em;
+
+  text-indent: 0.42em;
+}
+
+
+/* 下のアクセントライン */
+
+.uniforms-header-line {
+  display: block;
+
+  width: 30px;
+  height: 2px;
+
+  margin-top: 17px;
+
+  background: #19194f;
+}
+
+
+/* ========================================
+   3 × 3 GRID
+======================================== */
+
+.uniform-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  column-gap: 0;
+  row-gap: 22px;
+}
+
+
+/* 商品全体 */
+
+.uniform-item {
+  display: block;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* ========================================
+   商品画像
+======================================== */
+
+.uniform-image {
+  width: 100%;
+
+  aspect-ratio: 1 / 1;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* 後で本物の画像を入れるとき用 */
+
+.uniform-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+
+/* 仮画像 */
+
+.placeholder-image {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #f2f2f2;
+
+  color: #aaaaaa;
+
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+
+/* ========================================
+   商品情報
+======================================== */
+
+.uniform-info {
+  padding: 11px 6px 0;
+  text-align: center;
+}
+
+
+/* 商品名 */
+
+.uniform-info h2 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+
+/* 購入必須 */
+
+.required-label {
+  margin: 5px 0 0;
+  color: #888888;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+
+/* ========================================
+   タップ時
+======================================== */
+
+.uniform-item {
+  display: block;
+
+  position: relative;
+
+  color: inherit;
+  text-decoration: none;
+
+  background: #ffffff;
+
+  transform: scale(1);
+
+  transition:
+    transform 0.16s ease,
+    opacity 0.16s ease,
+    box-shadow 0.16s ease;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.uniform-item:active {
+  z-index: 2;
+
+  transform: scale(0.965);
+
+  opacity: 0.88;
+
+  box-shadow:
+    0 5px 18px
+    rgba(0, 0, 0, 0.10);
+}
+
+
+/* ========================================
+   PC
+======================================== */
+
+@media (min-width: 768px) {
+
+  .uniforms-container {
+    padding:
+      70px
+      0
+      100px;
+  }
+
+  .uniforms-header {
+  margin-bottom: 55px;
+}
+
+.uniforms-title {
+  font-size: 34px;
+}
+
+  .uniform-grid {
+    column-gap: 22px;
+    row-gap: 30px;
+  }
+
+  .uniform-info h2 {
+    font-size: 15px;
+  }
+
+  .required-label {
+    font-size: 11px;
+  }
+}
+
+/* ========================================
+   PRODUCT DETAIL PAGE
+======================================== */
+
+.product-page {
+  margin: 0;
+
+  background: #ffffff;
+  color: #111111;
+}
+
+
+/* ========================================
+   GALLERY
+======================================== */
+
+.product-gallery {
+  position: relative;
+
+  width: 100%;
+
+  background: #f2f2f2;
+}
+
+
+/* 写真表示エリア */
+
+.gallery-viewport {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+/* 写真を横に並べる */
+
+.gallery-track {
+  display: flex;
+
+  width: 100%;
+
+  transition: transform 0.35s ease;
+}
+
+
+/* 写真1枚 */
+
+.gallery-slide {
+  flex: 0 0 100%;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 5;
+
+  background: #eeeeee;
+}
+
+
+/* 写真 */
+
+.gallery-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* ========================================
+   × BUTTON
+======================================== */
+
+.product-close {
+  position: absolute;
+
+  top: 18px;
+  left: 18px;
+
+  z-index: 10;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 46px;
+  height: 46px;
+
+  border-radius: 50%;
+
+  background: rgba(20, 20, 20, 0.58);
+
+  color: #ffffff;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 31px;
+  font-weight: 200;
+
+  line-height: 1;
+
+  text-decoration: none;
+
+  backdrop-filter: blur(4px);
+}
+
+
+/* ========================================
+   ARROWS
+======================================== */
+
+.gallery-arrow {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  z-index: 5;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(20, 20, 20, 0.35);
+
+  color: #ffffff;
+
+  font-size: 34px;
+  font-weight: 200;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(3px);
+}
+
+
+.gallery-prev {
+  left: 14px;
+}
+
+
+.gallery-next {
+  right: 14px;
+}
+
+
+.gallery-arrow:active {
+  background: rgba(20, 20, 20, 0.6);
+}
+
+
+/* ========================================
+   DOTS
+======================================== */
+
+.gallery-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  height: 38px;
+
+  background: #ffffff;
+}
+
+
+.gallery-dot {
+  width: 6px;
+  height: 6px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #cfcfcf;
+}
+
+
+.gallery-dot.active {
+  background: #19194f;
+}
+
+
+/* ========================================
+   PRODUCT INFORMATION
+======================================== */
+
+.product-content {
+  width: 100%;
+}
+
+
+.product-heading {
+  padding: 24px 20px 34px;
+}
+
+
+.product-heading h1 {
+  margin: 0 0 16px;
+
+  font-size: 21px;
+  font-weight: 600;
+
+  line-height: 1.4;
+}
+
+
+.product-price {
+  margin: 0 0 10px;
+
+  font-size: 28px;
+  font-weight: 600;
+
+  letter-spacing: -0.02em;
+
+  white-space: pre-line;
+}
+
+
+.price-note {
+  margin: 0;
+
+  color: #777777;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   ACCORDION
+======================================== */
+
+.product-accordions {
+  width: 100%;
+
+  border-top: 1px solid #eeeeee;
+}
+
+
+.accordion-item {
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+/* 見出し */
+
+.accordion-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: 76px;
+
+  padding: 0 20px;
+
+  border: none;
+
+  background: #ffffff;
+  color: #111111;
+
+  font-family: inherit;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+
+/* ========================================
+   ＋ / − アイコン
+======================================== */
+
+.accordion-icon {
+  position: relative;
+
+  display: block;
+
+  width: 16px;
+  height: 16px;
+
+  flex-shrink: 0;
+}
+
+
+/* 横線 */
+
+.accordion-icon::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 16px;
+  height: 1px;
+
+  background: #777777;
+
+  transform: translateY(-50%);
+}
+
+
+/* 縦線 */
+
+.accordion-icon::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 16px;
+
+  background: #777777;
+
+  transform: translateX(-50%);
+
+  transition: transform 0.25s ease;
+}
+
+
+/* 開いたら縦線を消す */
+
+.accordion-header[aria-expanded="true"]
+.accordion-icon::after {
+  transform:
+    translateX(-50%)
+    rotate(90deg);
+
+  opacity: 0;
+}
+
+
+/* ========================================
+   開閉部分
+======================================== */
+
+.accordion-content {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  overflow: hidden;
+
+  transition:
+    grid-template-rows 0.3s ease;
+}
+
+
+.accordion-content.open {
+  grid-template-rows: 1fr;
+}
+
+
+.accordion-inner {
+  min-height: 0;
+
+  overflow: hidden;
+
+  padding:
+    0
+    20px;
+
+  transition:
+    padding 0.3s ease;
+}
+
+
+.accordion-content.open
+.accordion-inner {
+  padding:
+    5px
+    20px
+    32px;
+}
+
+
+/* ========================================
+   ITEM DESCRIPTION
+======================================== */
+
+.description-block + .description-block {
+  margin-top: 30px;
+}
+
+
+.description-block h3 {
+  margin:
+    0
+    0
+    10px;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+.description-block p {
+  margin: 0;
+
+  color: #444444;
+
+  font-size: 13px;
+
+  line-height: 1.9;
+
+  white-space: pre-line;
+}
+
+
+/* ========================================
+   SIZE GUIDE
+======================================== */
+
+.size-guide {
+  width: 100%;
+}
+
+
+/* ========================================
+   PANTS DIAGRAM
+======================================== */
+
+.pants-diagram {
+  display: block;
+
+  width: 100%;
+  max-width: 270px;
+
+  height: auto;
+}
+
+
+.pants-outline {
+  fill: #fafafa;
+
+  stroke: #333333;
+
+  stroke-width: 2;
+
+  stroke-linejoin: round;
+}
+
+
+.pants-detail {
+  fill: none;
+
+  stroke: #999999;
+
+  stroke-width: 1.5;
+}
+
+
+.no-fill {
+  fill: none;
+}
+
+/* ========================================
+   SLEEVELESS DIAGRAM
+======================================== */
+
+.sleeveless-diagram {
+  display: block;
+
+  width: 100%;
+  max-width: 250px;
+
+  height: auto;
+}
+
+
+.sleeveless-outline {
+  fill: #fafafa;
+
+  stroke: #333333;
+
+  stroke-width: 2;
+
+  stroke-linejoin: round;
+}
+
+/* ========================================
+   SIZE GROUP
+======================================== */
+
+.size-group + .size-group {
+  margin-top: 30px;
+}
+
+
+.size-group-title {
+  margin-bottom: 8px;
+
+  color: #222222;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+
+.size-note {
+  margin:
+    18px
+    0
+    0;
+
+  color: #999999;
+
+  font-size: 10px;
+
+  line-height: 1.7;
+}
+
+/* ========================================
+   TANK TOP DIAGRAM
+======================================== */
+
+.tanktop-diagram {
+  display: block;
+
+  width: 100%;
+  max-width: 250px;
+
+  height: auto;
+}
+
+
+.tanktop-outline {
+  fill: #fafafa;
+
+  stroke: #333333;
+
+  stroke-width: 2;
+
+  stroke-linejoin: round;
+}
+
+/* =========================
+   採寸図
+========================= */
+
+.size-diagram {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  padding:
+    8px
+    0
+    20px;
+}
+
+
+.shirt-diagram {
+  display: block;
+
+  width: 100%;
+  max-width: 300px;
+
+  height: auto;
+}
+
+
+/* シャツ */
+
+.shirt-outline {
+  fill: #fafafa;
+
+  stroke: #333333;
+
+  stroke-width: 2;
+
+  stroke-linejoin: round;
+}
+
+
+.shirt-detail {
+  fill: none;
+
+  stroke: #999999;
+
+  stroke-width: 1.5;
+}
+
+
+/* 採寸線 */
+
+.measure-line,
+.measure-cap {
+  stroke: #19194f;
+
+  stroke-width: 2;
+}
+
+
+.measure-text {
+  fill: #19194f;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   A / B 説明
+========================= */
+
+.measurement-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(100px, 1fr)
+    );
+
+  gap: 8px;
+
+  margin-bottom: 32px;
+}
+
+
+.measurement-item {
+  display: flex;
+
+  align-items: center;
+
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    11px
+    12px;
+
+  background: #f7f7f7;
+}
+
+
+.measurement-key {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 26px;
+  height: 26px;
+
+  margin-right: 9px;
+
+  background: #19194f;
+
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+.measurement-label {
+  color: #333333;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================
+   SIZE CHART TITLE
+========================= */
+
+.size-table-header {
+  display: flex;
+
+  align-items: baseline;
+  justify-content: space-between;
+
+  margin-bottom: 10px;
+}
+
+
+.size-table-header span:first-child {
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+}
+
+
+.size-table-header span:last-child {
+  color: #888888;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.size-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+.size-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+
+.size-table th,
+.size-table td {
+  padding:
+    12px
+    6px;
+
+  border-bottom:
+    1px solid #e5e5e5;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+
+.size-table thead th {
+  color: #777777;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  border-top:
+    1px solid #222222;
+
+  border-bottom:
+    1px solid #222222;
+}
+
+
+.size-table tbody th {
+  font-weight: 600;
+}
+
+
+.size-table tbody td {
+  color: #333333;
+}
+
+
+/* =========================
+   準備中
+========================= */
+
+.size-coming-soon {
+  margin: 5px 0 10px;
+
+  color: #999999;
+
+  font-size: 12px;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   REVIEWS
+======================================== */
+
+.review-summary {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: space-between;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+.review-summary-label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+.review-summary-score {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+
+/* レビュー1件 */
+
+.review-item {
+  padding: 22px 0;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+
+.review-item:last-child {
+  border-bottom: none;
+}
+
+
+/* 名前・星・点数 */
+
+.review-meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+
+.review-name {
+  min-width: 42px;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+.review-stars {
+  font-size: 13px;
+
+  letter-spacing: 1px;
+}
+
+
+.review-score {
+  color: #777777;
+
+  font-size: 11px;
+}
+
+
+/* 一言感想 */
+
+.review-item p {
+  margin:
+    11px
+    0
+    0;
+
+  color: #444444;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   PRODUCT FOOTER
+======================================== */
+
+.product-footer {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 250px;
+
+  margin-top: 70px;
+
+  background: #19194f;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+
+.product-footer strong {
+  margin-bottom: 15px;
+
+  font-size: 22px;
+
+  letter-spacing: 0.08em;
+}
+
+
+.product-footer span {
+  margin: 2px 0;
+
+  font-size: 11px;
+
+  letter-spacing: 0.12em;
+}
+
+/* ========================================
+   REQUIRED LABEL
+======================================== */
+
+.product-required {
+  display: none;
+
+  width: fit-content;
+
+  margin:
+    -5px
+    0
+    18px;
+
+  padding:
+    5px
+    9px;
+
+  border: 1px solid #222222;
+
+  color: #222222;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.08em;
+}
+
+
+.product-required.show {
+  display: block;
+}
+
+@media (hover: hover) {
+
+  .uniform-item:hover {
+    z-index: 2;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+      0 6px 20px
+      rgba(0, 0, 0, 0.07);
+  }
+
+}
