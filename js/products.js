@@ -68,7 +68,7 @@ const products = {
       {
     name: "小松優之介",
     rating: 5,
-    comment: "かっこいい"
+    comment: "身長:176cm、体重:60kg、性格:穏やかです。\n 購入サイズはLです。"
   },
   {
     name: "下山田蓮治",
@@ -144,7 +144,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+       {
+    name: "小松優之介",
+    rating: 5,
+    comment: "身長:176cm、体重:60kg、性格:穏やかです。\n 購入サイズはLです。"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -210,7 +221,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "身長:176cm、体重:60kg、性格:穏やかです。\n 購入サイズはLです。"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -283,7 +305,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "かわいい"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -356,7 +389,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "かわいい"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -429,7 +473,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "かわいい"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -529,7 +584,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "かわいい"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -597,7 +663,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "かわいい"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   },
 
@@ -730,7 +807,18 @@ const products = {
 
 },
 
-    reviews: []
+    reviews: [
+      {
+    name: "小松優之介",
+    rating: 5,
+    comment: "かわいい"
+  },
+  {
+    name: "下山田蓮治",
+    rating: 3,
+    comment: "かっこいい"
+  }
+    ]
 
   }
 

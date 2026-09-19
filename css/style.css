@@ -1324,6 +1324,8 @@ body {
   font-size: 13px;
 
   line-height: 1.7;
+
+  white-space: pre-line;
 }
 
 
@@ -1527,3 +1529,41 @@ body {
   width: 100%;
   text-align: center;
 }
+
+
+
+
+
+/* =========================
+   PAGE TRANSITION
+========================= */
+
+body::after {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  background: #ffffff;
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  z-index: 99999;
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0s linear 0.4s;
+}
+
+body.page-leaving::after {
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity 0.4s ease,
+    visibility 0s;
+}
+

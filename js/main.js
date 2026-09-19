@@ -1890,3 +1890,49 @@ accordionHeaders.forEach(
 
   }
 );
+
+
+
+
+
+
+/* ========================================
+   PAGE TRANSITION
+======================================== */
+
+document.querySelectorAll('a[href]').forEach((link) => {
+
+  link.addEventListener("click", (event) => {
+
+    const href = link.getAttribute("href");
+
+    if (
+      !href ||
+      href.startsWith("#") ||
+      link.target === "_blank"
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+
+    document.body.classList.add("page-leaving");
+
+    setTimeout(() => {
+
+      window.location.href = href;
+
+    }, 400);
+
+  });
+
+});
+
+
+/* 戻る操作対策 */
+
+window.addEventListener("pageshow", () => {
+
+  document.body.classList.remove("page-leaving");
+
+});
