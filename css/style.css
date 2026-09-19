@@ -506,29 +506,33 @@ body {
   z-index: 10;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  width: 46px;
-  height: 46px;
+  width: 42px;
+  height: 42px;
 
   border-radius: 50%;
 
-  background: rgba(20, 20, 20, 0.58);
+  background: rgba(255, 255, 255, 0.18);
 
-  color: #ffffff;
+  color: rgba(20, 20, 20, 0.72);
 
   font-family: Arial, sans-serif;
-
-  font-size: 31px;
+  font-size: 27px;
   font-weight: 200;
-
   line-height: 1;
 
   text-decoration: none;
 
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 
@@ -540,49 +544,57 @@ body {
   position: absolute;
 
   top: 50%;
-
   transform: translateY(-50%);
 
   z-index: 5;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 48px;
 
   padding: 0;
 
   border: none;
-  border-radius: 50%;
+  border-radius: 10px;
 
-  background: rgba(20, 20, 20, 0.35);
+  background: rgba(255, 255, 255, 0.12);
 
-  color: #ffffff;
+  color: rgba(20, 20, 20, 0.62);
 
-  font-size: 34px;
+  font-size: 29px;
   font-weight: 200;
 
   cursor: pointer;
 
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 
 .gallery-prev {
-  left: 14px;
+  left: 7px;
 }
 
 
 .gallery-next {
-  right: 14px;
+  right: 7px;
 }
 
 
 .gallery-arrow:active {
-  background: rgba(20, 20, 20, 0.6);
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.product-close:active {
+  background: rgba(255, 255, 255, 0.32);
+  transform: scale(0.94);
 }
 
 
