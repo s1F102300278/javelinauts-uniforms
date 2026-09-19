@@ -172,8 +172,8 @@ const products = {
   },
   {
     name: "下山田蓮治[#12]",
-    rating: 3,
-    comment: "かっこいい"
+    rating: 5,
+    comment: "汚せば汚すほどかっこいいです"
   }
     ]
 
@@ -250,7 +250,17 @@ const products = {
   {
     name: "下山田蓮治[#12]",
     rating: 3,
-    comment: "かっこいい"
+    comment: "俺がこの黒パンツを考案しじゃべに導入しました。"
+  },
+  {
+    name: "川中日翔[#90]",
+    rating: 2,
+    comment: "前の白のパンツの方がよかった。だれだよ考案したやつ"
+  },
+  {
+    name: "下山田蓮治[#12]",
+    rating: 3,
+    comment: "やんのかてめえ"
   }
     ]
 
@@ -687,7 +697,12 @@ const products = {
       {
     name: "小松優之介[#25]",
     rating: 5,
-    comment: "かわいい"
+    comment: "春から夏にかけて部屋着の不動のエースです"
+  },
+  {
+    name: "森雄作[#5]",
+    rating: 5,
+    comment: "買わない理由がない。"
   },
   {
     name: "下山田蓮治[#12]",
