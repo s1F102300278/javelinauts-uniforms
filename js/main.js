@@ -1984,3 +1984,30 @@ window.addEventListener("pageshow", () => {
   document.body.classList.remove("page-leaving");
 
 });
+
+/* ========================================
+   COMING SOON BUTTON
+======================================== */
+
+const comingSoonButton =
+  document.getElementById("coming-soon-button");
+
+if (comingSoonButton) {
+
+  const waitVoice =
+    new Audio("sounds/wait.m4a");
+
+  comingSoonButton.addEventListener(
+    "click",
+    () => {
+
+      waitVoice.currentTime = 0;
+
+      waitVoice.play().catch(() => {
+        /* 音声が再生できない場合は何もしない */
+      });
+
+    }
+  );
+
+}

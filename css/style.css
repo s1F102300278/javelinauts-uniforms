@@ -1580,3 +1580,92 @@ body.page-leaving::after {
     visibility 0s;
 }
 
+/* =========================
+   OTHER UNIFORMS
+========================= */
+
+.coming-soon-section {
+  display: flex;
+  justify-content: center;
+
+  padding: 55px 20px 65px;
+}
+
+
+.coming-soon-button {
+  width: 60%;
+  max-width: 250px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 0;
+
+  background: rgba(120, 125, 135, 0.10);
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease;
+}
+
+
+.coming-soon-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 78px;
+
+  padding: 14px 8px;
+
+  border: none;
+  border-radius: 0;
+}
+
+
+/* 上の文字 */
+
+.coming-soon-title {
+  color: #777777;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  letter-spacing: 0.03em;
+}
+
+
+.coming-soon-text {
+  margin-top: 7px;
+
+  color: #555555;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 0.10em;
+}
+
+
+/* 押した瞬間 */
+
+.coming-soon-button:active {
+  transform: scale(0.96);
+
+  background: rgba(120, 125, 135, 0.18);
+}
