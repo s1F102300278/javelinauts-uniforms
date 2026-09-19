@@ -1857,6 +1857,24 @@ const accordionHeaders =
   );
 
 
+/* 音声ファイル */
+
+const accordionVoices = {
+
+  description:
+    new Audio("sounds/description.m4a"),
+
+  size:
+    new Audio("sounds/size.m4a"),
+
+  review:
+    new Audio("sounds/review.m4a")
+
+};
+
+
+/* アコーディオン */
+
 accordionHeaders.forEach(
   (header) => {
 
@@ -1873,6 +1891,36 @@ accordionHeaders.forEach(
             "aria-expanded"
           ) === "true";
 
+
+        /* =========================
+           開くときだけボイス再生
+        ========================= */
+
+        if (!isOpen) {
+
+          const voiceName =
+            header.dataset.voice;
+
+          const voice =
+            accordionVoices[voiceName];
+
+
+          if (voice) {
+
+            voice.currentTime = 0;
+
+            voice.play().catch(() => {
+              /* 音声がまだ無い場合などは何もしない */
+            });
+
+          }
+
+        }
+
+
+        /* =========================
+           アコーディオン開閉
+        ========================= */
 
         header.setAttribute(
           "aria-expanded",
