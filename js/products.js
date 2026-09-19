@@ -68,7 +68,7 @@ const products = {
       {
     name: "小松優之介[#25]",
     rating: 5,
-    comment: "身長:176cm、体重:60kg、性格:穏やかです。\n 購入サイズはLです。"
+    comment: "身長:176cm、体重:60kg、性格:穏やか\n 購入サイズはLです。"
   },
   {
     name: "下山田蓮治[#12]",
@@ -235,7 +235,7 @@ const products = {
       {
     name: "小松優之介[#25]",
     rating: 5,
-    comment: "身長:176cm、体重:60kg、性格:穏やかです。\n 購入サイズはLです。"
+    comment: "身長:176cm、体重:60kg、性格:穏やか\n 購入サイズはLです。"
   },
   {
     name: "下山田蓮治[#12]",
