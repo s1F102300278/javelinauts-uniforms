@@ -73,17 +73,22 @@ const products = {
   {
     name: "下山田蓮治[#12]",
     rating: 3,
-    comment: "ボケポイント➁"
+    comment: "スタイルのいい女に着てほしい"
   },
   {
     name: "深瀬光[#23]",
     rating: 3,
-    comment: "ボケポイント➁"
+    comment: "乳首が小さくてもが隠せます"
   },
   {
-    name: "",
+    name: "成井佳貴[#6]",
     rating: 3,
-    comment: "ボケポイント➁"
+    comment: "笑える"
+  },
+  {
+    name: "川尻堀大輔[30min]",
+    rating: 1,
+    comment: "寝巻としては悪くないけど、睡眠改善は感じられなかった。"
   }
 
 ]
