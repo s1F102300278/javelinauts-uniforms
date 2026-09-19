@@ -72,13 +72,13 @@ const products = {
   },
   {
     name: "下山田蓮治[#12]",
-    rating: 3,
-    comment: "スタイルのいい女に着てほしい"
+    rating: 5,
+    comment: "「「レンジここに入る文章」」"
   },
   {
-    name: "深瀬光[#23]",
-    rating: 3,
-    comment: "乳首が小さくてもが隠せます"
+    name: "南谷爽太郎[#35]",
+    rating: 4,
+    comment: "俺が着るにふさわしいユニ"
   },
   {
     name: "成井佳貴[#6]",
@@ -86,7 +86,12 @@ const products = {
     comment: "笑える"
   },
   {
-    name: "川尻堀大輔[30min]",
+    name: "白田翼[#74]",
+    rating: 5,
+    comment: "2026年学生予選の車が楽しかったです"
+  },
+  {
+    name: "川尻堀大輔[#18/30min]",
     rating: 1,
     comment: "寝巻としては悪くないけど、睡眠改善は感じられなかった。"
   }
