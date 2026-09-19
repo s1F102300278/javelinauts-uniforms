@@ -1868,7 +1868,10 @@ const accordionVoices = {
     new Audio("sounds/size.m4a"),
 
   review:
-    new Audio("sounds/review.m4a")
+    new Audio("sounds/review.m4a"),
+
+  reviewLucky:
+    new Audio("sounds/review2.m4a")
 
 };
 
@@ -1899,21 +1902,39 @@ accordionHeaders.forEach(
         if (!isOpen) {
 
           const voiceName =
-            header.dataset.voice;
+  header.dataset.voice;
 
-          const voice =
-            accordionVoices[voiceName];
+let voice;
 
 
-          if (voice) {
+/* レビューだけ20%でレアボイス */
 
-            voice.currentTime = 0;
+if (voiceName === "review") {
 
-            voice.play().catch(() => {
-              /* 音声がまだ無い場合などは何もしない */
-            });
+  const isLucky =
+    Math.random() < 0.3;
 
-          }
+  voice = isLucky
+    ? accordionVoices.reviewLucky
+    : accordionVoices.review;
+
+}else {
+
+  voice =
+    accordionVoices[voiceName];
+
+}
+
+
+if (voice) {
+
+  voice.currentTime = 0;
+
+  voice.play().catch(() => {
+    /* 再生できない場合は何もしない */
+  });
+
+}
 
         }
 
