@@ -1891,9 +1891,9 @@ body.welcome-page {
 
 .welcome-credit {
   position: relative;
-  z-index: 3;
+  z-index: 4;
 
-  width: 230px;
+  width: 180px;
 
   margin:
     90px
@@ -1901,73 +1901,92 @@ body.welcome-page {
     0
     auto;
 
-  padding-right: 4px;
+  padding-bottom: 25px;
 
-  text-align: left;
-}
-
-
-/* SITE CREATION */
-
-.welcome-credit-head {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  margin-bottom: 20px;
-
-  color: rgba(255,255,255,.48);
-
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .24em;
-}
-
-
-.welcome-credit-line {
-  display: block;
-
-  flex: 1;
-
-  height: 1px;
-
-  background: rgba(255,255,255,.25);
-}
-
-
-/* 名前 */
-
-.welcome-credit-names {
-  display: flex;
-  flex-direction: column;
-
-  gap: 8px;
-
-  color: #ffffff;
+  text-align: right;
 
   font-family:
     "Helvetica Neue",
     Arial,
     sans-serif;
-
-  font-size: 11px;
-  font-weight: 600;
-
-  letter-spacing: .13em;
 }
 
 
-/* 2026 */
+/* SITE CREATED BY */
+
+.welcome-credit-title {
+  color: rgba(255,255,255,.45);
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: .25em;
+}
+
+
+/* 細いライン */
+
+.welcome-credit-line {
+  width: 45px;
+  height: 1px;
+
+  margin:
+    12px
+    0
+    22px
+    auto;
+
+  background:
+    rgba(255,255,255,.35);
+}
+
+
+/* 一人分 */
+
+.welcome-credit-person {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 18px;
+
+  color: rgba(255,255,255,.92);
+
+  line-height: 1.15;
+}
+
+
+/* 名前 */
+
+.credit-first {
+  font-size: 9px;
+  font-weight: 400;
+
+  letter-spacing: .18em;
+
+  color: rgba(255,255,255,.60);
+}
+
+
+.credit-last {
+  margin-top: 3px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: .12em;
+
+  white-space: nowrap;
+}
+
+
+/* 年 */
 
 .welcome-credit-year {
-  display: block;
+  margin-top: 26px;
 
-  margin-top: 17px;
-
-  color: rgba(255,255,255,.38);
+  color: rgba(255,255,255,.35);
 
   font-size: 8px;
 
-  letter-spacing: .2em;
+  letter-spacing: .22em;
 }
