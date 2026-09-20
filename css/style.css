@@ -1598,7 +1598,6 @@ body.welcome-page {
   max-width: 100%;
 
   overflow-x: hidden;
-  overflow-y: auto;
 }
 
 
@@ -1614,8 +1613,7 @@ body.welcome-page {
 
   background: #19194f;
 
-  overflow-x: hidden;
-  overflow-y: visible;
+  overflow-x: clip;
 }
 
 
