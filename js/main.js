@@ -1765,96 +1765,109 @@ if (
   dotsContainer
 ) {
 
-    /* 写真が1枚しかない場合 */
-
-if (gallerySlides.length === 1) {
-
-  prevButton.style.display = "none";
-  nextButton.style.display = "none";
-
-}
-
   let currentIndex = 0;
 
-  let touchStartX = 0;
-  let touchEndX = 0;
+  let startX = 0;
+  let startY = 0;
+
+  let diffX = 0;
+
+  let isDragging = false;
+  let direction = null;
 
 
-  /* 丸ポチ生成 */
+  /* ========================================
+     DOTS
+  ======================================== */
 
-  gallerySlides.forEach(
-    (slide, index) => {
+  gallerySlides.forEach((slide, index) => {
 
-      const dot =
-        document.createElement("button");
+    const dot =
+      document.createElement("button");
 
-      dot.classList.add(
-        "gallery-dot"
-      );
+    dot.classList.add("gallery-dot");
 
-      dot.type = "button";
-
-
-      if (index === 0) {
-        dot.classList.add("active");
-      }
+    dot.type = "button";
 
 
-      dot.addEventListener(
-        "click",
-        () => {
-
-          currentIndex = index;
-
-          updateGallery();
-
-        }
-      );
-
-
-      dotsContainer.appendChild(dot);
-
+    if (index === 0) {
+      dot.classList.add("active");
     }
-  );
+
+
+    dot.addEventListener("click", () => {
+
+      currentIndex = index;
+
+      updateGallery();
+
+    });
+
+
+    dotsContainer.appendChild(dot);
+
+  });
 
 
   const dots =
-    dotsContainer.querySelectorAll(
-      ".gallery-dot"
-    );
+    dotsContainer.querySelectorAll(".gallery-dot");
 
 
-  function updateGallery() {
+  /* ========================================
+     1枚しかない場合
+  ======================================== */
 
-    galleryTrack.style.transform =
-      `translateX(-${currentIndex * 100}%)`;
+  if (gallerySlides.length === 1) {
 
-
-    dots.forEach(
-      (dot, index) => {
-
-        dot.classList.toggle(
-          "active",
-          index === currentIndex
-        );
-
-      }
-    );
+    prevButton.style.display = "none";
+    nextButton.style.display = "none";
 
   }
 
 
+  /* ========================================
+     GALLERY UPDATE
+  ======================================== */
+
+  function updateGallery() {
+
+    galleryTrack.style.transition =
+      "transform 0.35s ease";
+
+    galleryTrack.style.transform =
+      `translate3d(-${currentIndex * 100}%, 0, 0)`;
+
+
+    dots.forEach((dot, index) => {
+
+      dot.classList.toggle(
+        "active",
+        index === currentIndex
+      );
+
+    });
+
+  }
+
+
+  /* ========================================
+     NEXT
+  ======================================== */
+
   function showNext() {
 
     currentIndex =
-      (currentIndex + 1)
-      %
+      (currentIndex + 1) %
       gallerySlides.length;
 
     updateGallery();
 
   }
 
+
+  /* ========================================
+     PREVIOUS
+  ======================================== */
 
   function showPrevious() {
 
@@ -1885,203 +1898,205 @@ if (gallerySlides.length === 1) {
 
 
   /* ========================================
-   MOBILE SWIPE
-======================================== */
+     TOUCH START
+  ======================================== */
 
-let startX = 0;
-let startY = 0;
-let currentX = 0;
+  galleryTrack.addEventListener(
+    "touchstart",
+    (event) => {
 
-let isDragging = false;
-let isHorizontalSwipe = null;
+      const touch =
+        event.touches[0];
 
+      startX = touch.clientX;
+      startY = touch.clientY;
 
-/* 指を置いた */
+      diffX = 0;
 
-galleryTrack.addEventListener(
-  "touchstart",
-  (event) => {
+      isDragging = true;
+      direction = null;
 
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
+      galleryTrack.style.transition =
+        "none";
 
-    currentX = startX;
-
-    isDragging = true;
-    isHorizontalSwipe = null;
-
-    /* ドラッグ中だけアニメーションを切る */
-    galleryTrack.style.transition = "none";
-
-  },
-  {
-    passive: true
-  }
-);
+    },
+    {
+      passive: true
+    }
+  );
 
 
-/* 指を動かしている */
+  /* ========================================
+     TOUCH MOVE
+  ======================================== */
 
-galleryTrack.addEventListener(
-  "touchmove",
-  (event) => {
+  galleryTrack.addEventListener(
+    "touchmove",
+    (event) => {
 
-    if (!isDragging) return;
-
-    const touch = event.touches[0];
-
-    currentX = touch.clientX;
-
-    const diffX =
-      currentX - startX;
-
-    const diffY =
-      touch.clientY - startY;
-
-
-    /*
-      最初の移動方向から
-      横スワイプか縦スクロールか判定
-    */
-
-    if (isHorizontalSwipe === null) {
-
-      if (
-        Math.abs(diffX) < 6 &&
-        Math.abs(diffY) < 6
-      ) {
+      if (!isDragging) {
         return;
       }
 
-      isHorizontalSwipe =
-        Math.abs(diffX) >
-        Math.abs(diffY);
-    }
+
+      const touch =
+        event.touches[0];
+
+      const moveX =
+        touch.clientX - startX;
+
+      const moveY =
+        touch.clientY - startY;
 
 
-    /*
-      縦方向なら何もしない
-      → 普通にページスクロール
-    */
+      /* ----------------------------------------
+         最初に移動方向を決定
+      ---------------------------------------- */
 
-    if (!isHorizontalSwipe) {
-      return;
-    }
+      if (direction === null) {
 
-
-    /*
-      横方向だけブラウザ操作を止める
-    */
-
-    event.preventDefault();
+        if (
+          Math.abs(moveX) < 8 &&
+          Math.abs(moveY) < 8
+        ) {
+          return;
+        }
 
 
-    /*
-      指に写真を追従させる
-    */
-
-    const viewportWidth =
-      galleryTrack.parentElement.clientWidth;
-
-    const basePosition =
-      -currentIndex * viewportWidth;
-
-    galleryTrack.style.transform =
-      `translateX(${basePosition + diffX}px)`;
-
-  },
-  {
-    passive: false
-  }
-);
-
-
-/* 指を離した */
-
-galleryTrack.addEventListener(
-  "touchend",
-  () => {
-
-    if (!isDragging) return;
-
-    isDragging = false;
-
-    galleryTrack.style.transition =
-      "transform 0.35s ease";
-
-
-    /*
-      縦スクロールだった場合
-    */
-
-    if (!isHorizontalSwipe) {
-
-      updateGallery();
-
-      return;
-    }
-
-
-    const distance =
-      currentX - startX;
-
-
-    /*
-      50px以上スワイプしたら切り替え
-    */
-
-    if (Math.abs(distance) >= 50) {
-
-      if (distance < 0) {
-
-        /* 左へスワイプ */
-
-        showNext();
-
-      } else {
-
-        /* 右へスワイプ */
-
-        showPrevious();
+        direction =
+          Math.abs(moveX) >
+          Math.abs(moveY)
+            ? "horizontal"
+            : "vertical";
 
       }
 
-    } else {
+
+      /* 縦スクロールならギャラリーは触らない */
+
+      if (direction === "vertical") {
+        return;
+      }
+
+
+      /* 横スワイプ */
+
+      event.preventDefault();
+
+      diffX = moveX;
+
 
       /*
-        移動量が足りなければ
-        元の写真へ戻す
+        重要：
+        基準位置も移動量も
+        すべて%で計算する
       */
+
+      const width =
+        galleryTrack.clientWidth;
+
+      const dragPercent =
+        (diffX / width) * 100;
+
+
+      galleryTrack.style.transform =
+        `translate3d(calc(-${currentIndex * 100}% + ${dragPercent}%), 0, 0)`;
+
+    },
+    {
+      passive: false
+    }
+  );
+
+
+  /* ========================================
+     TOUCH END
+  ======================================== */
+
+  galleryTrack.addEventListener(
+    "touchend",
+    () => {
+
+      if (!isDragging) {
+        return;
+      }
+
+
+      isDragging = false;
+
+
+      /* 縦スクロールだった */
+
+      if (direction !== "horizontal") {
+
+        updateGallery();
+
+        return;
+
+      }
+
+
+      /* 50px以上ならページ変更 */
+
+      if (Math.abs(diffX) >= 50) {
+
+        if (diffX < 0) {
+
+          currentIndex =
+            (currentIndex + 1) %
+            gallerySlides.length;
+
+        } else {
+
+          currentIndex =
+            (
+              currentIndex
+              - 1
+              + gallerySlides.length
+            )
+            %
+            gallerySlides.length;
+
+        }
+
+      }
+
+
+      diffX = 0;
 
       updateGallery();
 
+    },
+    {
+      passive: true
     }
-
-  },
-  {
-    passive: true
-  }
-);
+  );
 
 
-/* 途中でタッチがキャンセルされた場合 */
+  /* ========================================
+     TOUCH CANCEL
+  ======================================== */
 
-galleryTrack.addEventListener(
-  "touchcancel",
-  () => {
+  galleryTrack.addEventListener(
+    "touchcancel",
+    () => {
 
-    isDragging = false;
+      isDragging = false;
+      diffX = 0;
+      direction = null;
 
-    galleryTrack.style.transition =
-      "transform 0.35s ease";
+      updateGallery();
 
-    updateGallery();
+    },
+    {
+      passive: true
+    }
+  );
 
-  },
-  {
-    passive: true
-  }
-);
+
+  /* 初期位置 */
+
+  updateGallery();
 
 }
 
