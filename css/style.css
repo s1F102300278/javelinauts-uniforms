@@ -1579,16 +1579,23 @@ body.page-leaving::after {
    WELCOME PAGE
 ========================= */
 
+
 html,
 body {
-  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+
+  overflow-x: hidden;
 }
 
 body.welcome-page {
-  margin: 0;
-  padding: 0;
-
   background: #19194f;
+  color: #ffffff;
+
+  width: 100%;
+  max-width: 100%;
 
   overflow-x: hidden;
   overflow-y: auto;
@@ -1601,11 +1608,14 @@ body.welcome-page {
   position: relative;
 
   width: 100%;
+  max-width: 100%;
+
   min-height: 100vh;
 
-  overflow: visible;
-
   background: #19194f;
+
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 
@@ -1873,4 +1883,91 @@ body.welcome-page {
 
   pointer-events: none;
   user-select: none;
+}
+
+/* =========================
+   SITE CREDIT
+========================= */
+
+.welcome-credit {
+  position: relative;
+  z-index: 3;
+
+  width: 230px;
+
+  margin:
+    90px
+    0
+    0
+    auto;
+
+  padding-right: 4px;
+
+  text-align: left;
+}
+
+
+/* SITE CREATION */
+
+.welcome-credit-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 20px;
+
+  color: rgba(255,255,255,.48);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: .24em;
+}
+
+
+.welcome-credit-line {
+  display: block;
+
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(255,255,255,.25);
+}
+
+
+/* 名前 */
+
+.welcome-credit-names {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  color: #ffffff;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: .13em;
+}
+
+
+/* 2026 */
+
+.welcome-credit-year {
+  display: block;
+
+  margin-top: 17px;
+
+  color: rgba(255,255,255,.38);
+
+  font-size: 8px;
+
+  letter-spacing: .2em;
 }
