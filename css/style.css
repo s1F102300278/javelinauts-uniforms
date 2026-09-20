@@ -1575,28 +1575,32 @@ body.page-leaving::after {
     sans-serif;
 }
 
-/* =========================
+/* ==================================================
    WELCOME PAGE
-========================= */
-
+================================================== */
 
 html,
 body {
   margin: 0;
   padding: 0;
-
   width: 100%;
-  max-width: 100%;
 }
+
+
+/* ページ本体 */
 
 body.welcome-page {
   margin: 0;
 
   background: #19194f;
   color: #ffffff;
-
-  overflow-x: hidden;
 }
+
+
+/*
+  ロゴの横方向のはみ出しだけを切る。
+  overflow:hidden と違いスクロールコンテナを作らない。
+*/
 
 .welcome {
   position: relative;
@@ -1605,19 +1609,20 @@ body.welcome-page {
   min-height: 100vh;
 
   background: #19194f;
+
+  overflow-x: clip;
 }
 
 
-/* =========================
-   TOP / HERO
-========================= */
+/* ==================================================
+   HERO
+================================================== */
 
 .welcome-hero {
-  display: block;
+  position: relative;
+  z-index: 2;
 
   width: 100%;
-
-  min-height: 0;
 
   padding:
     70px
@@ -1637,8 +1642,6 @@ body.welcome-page {
   margin: 0 auto;
 
   text-align: center;
-
-  transform: none;
 }
 
 
@@ -1647,7 +1650,12 @@ body.welcome-page {
 .welcome-content h1 {
   margin: 0;
 
-  color: #fff;
+  color: #ffffff;
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 
   font-size: 48px;
   font-weight: 800;
@@ -1661,9 +1669,12 @@ body.welcome-page {
 /* 東洋大学 JAVELINAUTS */
 
 .welcome-content > p {
-  margin: 28px 0 0;
+  margin:
+    28px
+    0
+    0;
 
-  color: #fff;
+  color: #ffffff;
 
   font-size: 14px;
   font-weight: 400;
@@ -1672,7 +1683,9 @@ body.welcome-page {
 }
 
 
-/* ENTER */
+/* ==================================================
+   ENTER
+================================================== */
 
 .enter-button {
   position: relative;
@@ -1703,39 +1716,37 @@ body.welcome-page {
   text-decoration: none;
 
   border-bottom:
-    1px solid rgba(255,255,255,.65);
+    1px solid rgba(255, 255, 255, .65);
 }
 
 
-/* ENTER右側の矢印 */
+/* 矢印 */
 
 .enter-button::after {
   content: "→";
 
   position: absolute;
 
-  right: 75px;
   top: 0;
-
-  letter-spacing: 0;
+  right: 75px;
 
   font-weight: 400;
+
+  letter-spacing: 0;
 }
 
 
-/* =========================
+/* ==================================================
    STORY
-========================= */
+================================================== */
 
 .welcome-story {
   position: relative;
+  z-index: 2;
 
   width: calc(100% - 56px);
   max-width: 560px;
 
-  /*
-    ENTERの下から約1.5cm程度
-  */
   margin:
     56px
     auto
@@ -1749,7 +1760,12 @@ body.welcome-page {
   box-sizing: border-box;
 
   color:
-    rgba(255,255,255,.90);
+    rgba(255, 255, 255, .90);
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 
   font-size: 13px;
   font-weight: 400;
@@ -1770,13 +1786,15 @@ body.welcome-page {
 }
 
 
-/* 受け継ぐものがある */
+/* ==================================================
+   STORY MESSAGE
+================================================== */
 
 .welcome-story-message {
   margin-top: 54px !important;
   margin-bottom: 60px !important;
 
-  color: #fff;
+  color: #ffffff;
 
   font-size: 15px;
   font-weight: 600;
@@ -1785,7 +1803,9 @@ body.welcome-page {
 }
 
 
-/* 最後 */
+/* ==================================================
+   STORY ENDING
+================================================== */
 
 .welcome-story-ending {
   margin-top: 10px;
@@ -1798,7 +1818,7 @@ body.welcome-page {
     0
     18px;
 
-  color: #fff;
+  color: #ffffff;
 
   font-size: 22px;
   font-weight: 800;
@@ -1811,14 +1831,15 @@ body.welcome-page {
   margin: 0;
 
   color:
-    rgba(255,255,255,.90);
+    rgba(255, 255, 255, .90);
 
   line-height: 2;
 }
 
-/* =========================
-   WELCOME BACKGROUND LOGO
-========================= */
+
+/* ==================================================
+   TOP LEFT BACKGROUND LOGO
+================================================== */
 
 .welcome-bg-logo {
   position: absolute;
@@ -1838,24 +1859,9 @@ body.welcome-page {
 }
 
 
-/* WELCOME文字をロゴより前へ */
-
-.welcome-hero {
-  position: relative;
-  z-index: 2;
-}
-
-
-/* 紹介文もロゴより前へ */
-
-.welcome-story {
-  position: relative;
-  z-index: 2;
-}
-
-/* =========================
-   WELCOME BOTTOM LOGO
-========================= */
+/* ==================================================
+   BOTTOM RIGHT BACKGROUND LOGO
+================================================== */
 
 .welcome-bg-logo-bottom {
   position: absolute;
@@ -1874,9 +1880,10 @@ body.welcome-page {
   user-select: none;
 }
 
-/* =========================
+
+/* ==================================================
    CREDIT
-========================= */
+================================================== */
 
 .welcome-credit {
   position: relative;
@@ -1893,7 +1900,8 @@ body.welcome-page {
 
   margin-bottom: 10px;
 
-  color: rgba(255,255,255,.45);
+  color:
+    rgba(255, 255, 255, .45);
 
   font-size: 9px;
   font-weight: 600;
@@ -1905,7 +1913,8 @@ body.welcome-page {
 .welcome-credit p {
   margin: 0;
 
-  color: rgba(255,255,255,.72);
+  color:
+    rgba(255, 255, 255, .72);
 
   font-size: 11px;
   font-weight: 400;
