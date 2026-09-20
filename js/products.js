@@ -725,14 +725,14 @@ const products = {
 
     reviews: [
       {
-    name: "小松優之介[#25]",
-    rating: 5,
-    comment: "未定"
+    name: "原健太郎[#4]",
+    rating: 4,
+    comment: "かっこよすぎてINIADでは浮きます"
   },
   {
-    name: "川中日翔[#90]",
+    name: "Ethan Ho[#70]",
     rating: 5,
-    comment: "未定"
+    comment: "I'd definitely buy it　:)"
   }
     ]
 
@@ -998,7 +998,13 @@ const products = {
     name: "川中日翔[#90]",
     rating: 5,
     comment: "パジャマにちょうど良すぎて困っている。\nそのまま家出れるし。"
+  },
+  {
+    name: "成井佳貴[#6]",
+    rating: 5,
+    comment: "ここだけの話、女子がジャベパ着ると可愛すぎて目をみて話せなくなります"
   }
+  
     ]
 
   }
