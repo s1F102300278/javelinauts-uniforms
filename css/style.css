@@ -2155,3 +2155,12 @@ body.welcome-page {
 
   text-transform: lowercase;
 }
+
+.uniform-info h2 {
+  font-size: clamp(11px, 3.1vw, 16px);
+  letter-spacing: -0.03em;
+}
+
+.black-pink-sleeveless-name {
+  transform: translateY(-5px);
+}
