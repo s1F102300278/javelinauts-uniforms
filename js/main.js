@@ -1759,6 +1759,12 @@ const nextButton =
 const dotsContainer =
   document.querySelector(".gallery-dots");
 
+const galleryCurrent =
+  document.getElementById("gallery-current");
+
+const galleryTotal =
+  document.getElementById("gallery-total");
+
 
 if (
   galleryViewport &&
@@ -1853,6 +1859,17 @@ if (
       );
 
     });
+
+    /* 写真枚数表示 */
+    if (galleryCurrent) {
+  galleryCurrent.textContent =
+    currentIndex + 1;
+}
+
+if (galleryTotal) {
+  galleryTotal.textContent =
+    gallerySlides.length;
+}
 
   }
 

@@ -348,36 +348,64 @@
 
   z-index: 10;
 
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 
-  width: 42px;
-  height: 42px;
+  gap: 7px;
 
-  border-radius: 50%;
+  height: 40px;
 
-  background: rgba(255, 255, 255, 0.18);
+  padding: 0 14px;
 
-  color: rgba(20, 20, 20, 0.72);
+  border:
+    1px solid rgba(255, 255, 255, 0.30);
 
-  font-family: Arial, sans-serif;
-  font-size: 27px;
-  font-weight: 200;
-  line-height: 1;
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.20);
+
+  color:
+    rgba(20, 20, 20, 0.72);
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
 
   text-decoration: none;
 
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
 
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  -webkit-tap-highlight-color: transparent;
 
   transition:
     background 0.2s ease,
     transform 0.2s ease;
 }
 
+.product-back-arrow {
+  font-size: 17px;
+  font-weight: 300;
+
+  line-height: 1;
+
+  letter-spacing: 0;
+}
+
+.product-close:active {
+  background:
+    rgba(255, 255, 255, 0.38);
+
+  transform: scale(0.96);
+}
 
 /* ========================================
    ARROWS
@@ -440,6 +468,35 @@
   transform: scale(0.94);
 }
 
+.gallery-counter {
+  position: absolute;
+
+  top: 24px;
+  right: 20px;
+
+  z-index: 10;
+
+  color:
+    rgba(20, 20, 20, 0.48);
+
+  font-family:
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  pointer-events: none;
+}
+
+.gallery-counter-separator {
+  margin: 0 3px;
+
+  opacity: 0.55;
+}
 
 /* ========================================
    DOTS
@@ -1240,7 +1297,7 @@
   margin-top: 32px;
   padding-bottom: 6px;
 
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(232, 177, 12, 0.72);
 
   font-family:
     "Helvetica Neue",
@@ -2083,3 +2140,18 @@ body.welcome-page {
   letter-spacing: .08em;
 }
 
+.footer-copyright {
+  margin-top: 42px !important;
+
+  color:
+    rgba(255, 255, 255, 0.58) !important;
+
+  font-size: 10px !important;
+  font-weight: 400 !important;
+
+  line-height: 1 !important;
+
+  letter-spacing: 0.10em !important;
+
+  text-transform: lowercase;
+}
