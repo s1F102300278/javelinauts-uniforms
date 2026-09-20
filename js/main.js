@@ -1884,52 +1884,204 @@ if (gallerySlides.length === 1) {
   );
 
 
-  /* スワイプ */
+  /* ========================================
+   MOBILE SWIPE
+======================================== */
 
-  galleryTrack.addEventListener(
-    "touchstart",
-    (event) => {
+let startX = 0;
+let startY = 0;
+let currentX = 0;
 
-      touchStartX =
-        event.touches[0].clientX;
-
-    },
-    {
-      passive: true
-    }
-  );
+let isDragging = false;
+let isHorizontalSwipe = null;
 
 
-  galleryTrack.addEventListener(
-    "touchend",
-    (event) => {
+/* 指を置いた */
 
-      touchEndX =
-        event.changedTouches[0].clientX;
+galleryTrack.addEventListener(
+  "touchstart",
+  (event) => {
+
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+
+    currentX = startX;
+
+    isDragging = true;
+    isHorizontalSwipe = null;
+
+    /* ドラッグ中だけアニメーションを切る */
+    galleryTrack.style.transition = "none";
+
+  },
+  {
+    passive: true
+  }
+);
 
 
-      const distance =
-        touchStartX - touchEndX;
+/* 指を動かしている */
+
+galleryTrack.addEventListener(
+  "touchmove",
+  (event) => {
+
+    if (!isDragging) return;
+
+    const touch = event.touches[0];
+
+    currentX = touch.clientX;
+
+    const diffX =
+      currentX - startX;
+
+    const diffY =
+      touch.clientY - startY;
 
 
-      if (Math.abs(distance) < 50) {
+    /*
+      最初の移動方向から
+      横スワイプか縦スクロールか判定
+    */
+
+    if (isHorizontalSwipe === null) {
+
+      if (
+        Math.abs(diffX) < 6 &&
+        Math.abs(diffY) < 6
+      ) {
         return;
       }
 
-
-      if (distance > 0) {
-        showNext();
-      }
-
-      else {
-        showPrevious();
-      }
-
-    },
-    {
-      passive: true
+      isHorizontalSwipe =
+        Math.abs(diffX) >
+        Math.abs(diffY);
     }
-  );
+
+
+    /*
+      縦方向なら何もしない
+      → 普通にページスクロール
+    */
+
+    if (!isHorizontalSwipe) {
+      return;
+    }
+
+
+    /*
+      横方向だけブラウザ操作を止める
+    */
+
+    event.preventDefault();
+
+
+    /*
+      指に写真を追従させる
+    */
+
+    const viewportWidth =
+      galleryTrack.parentElement.clientWidth;
+
+    const basePosition =
+      -currentIndex * viewportWidth;
+
+    galleryTrack.style.transform =
+      `translateX(${basePosition + diffX}px)`;
+
+  },
+  {
+    passive: false
+  }
+);
+
+
+/* 指を離した */
+
+galleryTrack.addEventListener(
+  "touchend",
+  () => {
+
+    if (!isDragging) return;
+
+    isDragging = false;
+
+    galleryTrack.style.transition =
+      "transform 0.35s ease";
+
+
+    /*
+      縦スクロールだった場合
+    */
+
+    if (!isHorizontalSwipe) {
+
+      updateGallery();
+
+      return;
+    }
+
+
+    const distance =
+      currentX - startX;
+
+
+    /*
+      50px以上スワイプしたら切り替え
+    */
+
+    if (Math.abs(distance) >= 50) {
+
+      if (distance < 0) {
+
+        /* 左へスワイプ */
+
+        showNext();
+
+      } else {
+
+        /* 右へスワイプ */
+
+        showPrevious();
+
+      }
+
+    } else {
+
+      /*
+        移動量が足りなければ
+        元の写真へ戻す
+      */
+
+      updateGallery();
+
+    }
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+/* 途中でタッチがキャンセルされた場合 */
+
+galleryTrack.addEventListener(
+  "touchcancel",
+  () => {
+
+    isDragging = false;
+
+    galleryTrack.style.transition =
+      "transform 0.35s ease";
+
+    updateGallery();
+
+  },
+  {
+    passive: true
+  }
+);
 
 }
 

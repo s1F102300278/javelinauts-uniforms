@@ -306,6 +306,8 @@
   width: 100%;
 
   transition: transform 0.35s ease;
+  
+  touch-action: pan-y;
 }
 
 
