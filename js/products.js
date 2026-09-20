@@ -183,7 +183,7 @@ const products = {
   {
     name: "吉野佑飛[#44]",
     rating: 3,
-    comment: "これ着てラーメン食ったらママに怒られてた"
+    comment: "これ着てラーメン食ったらママに怒られた"
   }
     ]
 
