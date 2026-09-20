@@ -1741,6 +1741,9 @@ sizeContainer.innerHTML = `
    GALLERY
 ======================================== */
 
+const galleryViewport =
+  document.querySelector(".gallery-viewport");
+
 const galleryTrack =
   document.querySelector(".gallery-track");
 
@@ -1758,6 +1761,7 @@ const dotsContainer =
 
 
 if (
+  galleryViewport &&
   galleryTrack &&
   gallerySlides.length > 0 &&
   prevButton &&
@@ -1769,11 +1773,10 @@ if (
 
   let startX = 0;
   let startY = 0;
-
   let diffX = 0;
 
   let isDragging = false;
-  let direction = null;
+  let isHorizontal = null;
 
 
   /* ========================================
@@ -1785,15 +1788,12 @@ if (
     const dot =
       document.createElement("button");
 
-    dot.classList.add("gallery-dot");
-
     dot.type = "button";
-
+    dot.classList.add("gallery-dot");
 
     if (index === 0) {
       dot.classList.add("active");
     }
-
 
     dot.addEventListener("click", () => {
 
@@ -1802,7 +1802,6 @@ if (
       updateGallery();
 
     });
-
 
     dotsContainer.appendChild(dot);
 
@@ -1814,28 +1813,36 @@ if (
 
 
   /* ========================================
-     1枚しかない場合
+     現在位置
   ======================================== */
 
-  if (gallerySlides.length === 1) {
+  function getSlideWidth() {
 
-    prevButton.style.display = "none";
-    nextButton.style.display = "none";
+    return galleryViewport.clientWidth;
+
+  }
+
+
+  function getCurrentPosition() {
+
+    return -(currentIndex * getSlideWidth());
 
   }
 
 
   /* ========================================
-     GALLERY UPDATE
+     表示更新
   ======================================== */
 
-  function updateGallery() {
+  function updateGallery(animate = true) {
 
     galleryTrack.style.transition =
-      "transform 0.35s ease";
+      animate
+        ? "transform 0.35s ease"
+        : "none";
 
     galleryTrack.style.transform =
-      `translate3d(-${currentIndex * 100}%, 0, 0)`;
+      `translate3d(${getCurrentPosition()}px, 0, 0)`;
 
 
     dots.forEach((dot, index) => {
@@ -1851,7 +1858,7 @@ if (
 
 
   /* ========================================
-     NEXT
+     NEXT / PREVIOUS
   ======================================== */
 
   function showNext() {
@@ -1864,10 +1871,6 @@ if (
 
   }
 
-
-  /* ========================================
-     PREVIOUS
-  ======================================== */
 
   function showPrevious() {
 
@@ -1901,9 +1904,13 @@ if (
      TOUCH START
   ======================================== */
 
-  galleryTrack.addEventListener(
+  galleryViewport.addEventListener(
     "touchstart",
     (event) => {
+
+      if (event.touches.length !== 1) {
+        return;
+      }
 
       const touch =
         event.touches[0];
@@ -1914,7 +1921,7 @@ if (
       diffX = 0;
 
       isDragging = true;
-      direction = null;
+      isHorizontal = null;
 
       galleryTrack.style.transition =
         "none";
@@ -1930,11 +1937,14 @@ if (
      TOUCH MOVE
   ======================================== */
 
-  galleryTrack.addEventListener(
+  galleryViewport.addEventListener(
     "touchmove",
     (event) => {
 
-      if (!isDragging) {
+      if (
+        !isDragging ||
+        event.touches.length !== 1
+      ) {
         return;
       }
 
@@ -1949,37 +1959,35 @@ if (
         touch.clientY - startY;
 
 
-      /* ----------------------------------------
-         最初に移動方向を決定
-      ---------------------------------------- */
+      /*
+        最初の動きから
+        横か縦かを一度だけ判定
+      */
 
-      if (direction === null) {
+      if (isHorizontal === null) {
 
         if (
-          Math.abs(moveX) < 8 &&
-          Math.abs(moveY) < 8
+          Math.abs(moveX) < 6 &&
+          Math.abs(moveY) < 6
         ) {
           return;
         }
 
-
-        direction =
+        isHorizontal =
           Math.abs(moveX) >
-          Math.abs(moveY)
-            ? "horizontal"
-            : "vertical";
+          Math.abs(moveY);
 
       }
 
 
-      /* 縦スクロールならギャラリーは触らない */
+      /*
+        縦操作ならページスクロールに任せる
+      */
 
-      if (direction === "vertical") {
+      if (!isHorizontal) {
         return;
       }
 
-
-      /* 横スワイプ */
 
       event.preventDefault();
 
@@ -1987,20 +1995,16 @@ if (
 
 
       /*
-        重要：
-        基準位置も移動量も
-        すべて%で計算する
+        現在の写真位置 + 指の移動量
+
+        すべてpxで統一
       */
 
-      const width =
-        galleryTrack.clientWidth;
-
-      const dragPercent =
-        (diffX / width) * 100;
-
+      const position =
+        getCurrentPosition() + diffX;
 
       galleryTrack.style.transform =
-        `translate3d(calc(-${currentIndex * 100}% + ${dragPercent}%), 0, 0)`;
+        `translate3d(${position}px, 0, 0)`;
 
     },
     {
@@ -2013,7 +2017,7 @@ if (
      TOUCH END
   ======================================== */
 
-  galleryTrack.addEventListener(
+  galleryViewport.addEventListener(
     "touchend",
     () => {
 
@@ -2021,13 +2025,14 @@ if (
         return;
       }
 
-
       isDragging = false;
 
 
-      /* 縦スクロールだった */
+      /*
+        横スワイプではなかった
+      */
 
-      if (direction !== "horizontal") {
+      if (!isHorizontal) {
 
         updateGallery();
 
@@ -2036,9 +2041,11 @@ if (
       }
 
 
-      /* 50px以上ならページ変更 */
+      /*
+        45px以上動いたら写真変更
+      */
 
-      if (Math.abs(diffX) >= 50) {
+      if (Math.abs(diffX) >= 45) {
 
         if (diffX < 0) {
 
@@ -2063,6 +2070,7 @@ if (
 
 
       diffX = 0;
+      isHorizontal = null;
 
       updateGallery();
 
@@ -2077,13 +2085,13 @@ if (
      TOUCH CANCEL
   ======================================== */
 
-  galleryTrack.addEventListener(
+  galleryViewport.addEventListener(
     "touchcancel",
     () => {
 
       isDragging = false;
       diffX = 0;
-      direction = null;
+      isHorizontal = null;
 
       updateGallery();
 
@@ -2094,9 +2102,35 @@ if (
   );
 
 
+  /* ========================================
+     画面回転・サイズ変更
+  ======================================== */
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      updateGallery(false);
+
+    }
+  );
+
+
+  /* ========================================
+     画像1枚だけの場合
+  ======================================== */
+
+  if (gallerySlides.length === 1) {
+
+    prevButton.style.display = "none";
+    nextButton.style.display = "none";
+
+  }
+
+
   /* 初期位置 */
 
-  updateGallery();
+  updateGallery(false);
 
 }
 

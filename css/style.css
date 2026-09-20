@@ -295,10 +295,9 @@
   width: 100%;
 
   overflow: hidden;
+
+  touch-action: pan-y;
 }
-
-
-/* 写真を横に並べる */
 
 .gallery-track {
   display: flex;
@@ -306,8 +305,6 @@
   width: 100%;
 
   transition: transform 0.35s ease;
-
-  touch-action: pan-y;
 
   will-change: transform;
 }
@@ -1927,3 +1924,4 @@ body.welcome-page {
 
   letter-spacing: .08em;
 }
+
