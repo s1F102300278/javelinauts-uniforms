@@ -1886,107 +1886,42 @@ body.welcome-page {
 }
 
 /* =========================
-   SITE CREDIT
+   CREDIT
 ========================= */
 
 .welcome-credit {
   position: relative;
-  z-index: 4;
+  z-index: 3;
 
-  width: 180px;
-
-  margin:
-    90px
-    0
-    0
-    auto;
-
-  padding-bottom: 25px;
+  margin-top: 75px;
 
   text-align: right;
-
-  font-family:
-    "Helvetica Neue",
-    Arial,
-    sans-serif;
 }
 
 
-/* SITE CREATED BY */
+.welcome-credit-label {
+  display: block;
 
-.welcome-credit-title {
+  margin-bottom: 10px;
+
   color: rgba(255,255,255,.45);
 
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
 
-  letter-spacing: .25em;
+  letter-spacing: .22em;
 }
 
 
-/* 細いライン */
+.welcome-credit p {
+  margin: 0;
 
-.welcome-credit-line {
-  width: 45px;
-  height: 1px;
+  color: rgba(255,255,255,.72);
 
-  margin:
-    12px
-    0
-    22px
-    auto;
-
-  background:
-    rgba(255,255,255,.35);
-}
-
-
-/* 一人分 */
-
-.welcome-credit-person {
-  display: flex;
-  flex-direction: column;
-
-  margin-bottom: 18px;
-
-  color: rgba(255,255,255,.92);
-
-  line-height: 1.15;
-}
-
-
-/* 名前 */
-
-.credit-first {
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 400;
 
-  letter-spacing: .18em;
+  line-height: 1.9;
 
-  color: rgba(255,255,255,.60);
-}
-
-
-.credit-last {
-  margin-top: 3px;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  letter-spacing: .12em;
-
-  white-space: nowrap;
-}
-
-
-/* 年 */
-
-.welcome-credit-year {
-  margin-top: 26px;
-
-  color: rgba(255,255,255,.35);
-
-  font-size: 8px;
-
-  letter-spacing: .22em;
+  letter-spacing: .08em;
 }
