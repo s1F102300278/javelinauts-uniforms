@@ -1669,3 +1669,67 @@ body.page-leaving::after {
 
   background: rgba(120, 125, 135, 0.18);
 }
+
+/* =========================
+   JAVEPA SIZE GUIDE
+========================= */
+
+.javepa-diagram {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  height: auto;
+  margin: 0 auto;
+}
+
+
+/* 服本体 */
+
+.javepa-garment {
+  fill: #fafafa;
+  stroke: #222;
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+
+/* フード・ウエスト・裾など */
+
+.javepa-garment-detail {
+  fill: none;
+  stroke: #777;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+
+/* 寸法線 */
+
+.measure-line-arrow {
+  fill: none;
+  stroke: #19194f;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+
+/* 矢印 */
+
+.measure-arrow {
+  fill: #19194f;
+}
+
+
+/* 寸法名 */
+
+.measure-label {
+  fill: #19194f;
+  font-size: 14px;
+  font-weight: 700;
+  font-family:
+    "Helvetica Neue",
+    "Noto Sans JP",
+    Arial,
+    sans-serif;
+}

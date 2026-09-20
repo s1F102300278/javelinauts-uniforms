@@ -783,29 +783,29 @@ const products = {
 
       measurements: [
         {
-          key: "A",
+          key: "着丈",
           label: "着丈"
         },
         {
-          key: "B",
+          key: "身幅",
           label: "身幅"
         },
         {
-          key: "C",
+          key: "肩幅",
           label: "肩幅"
         },
         {
-          key: "D",
+          key: "袖丈",
           label: "袖丈"
         }
       ],
 
       headers: [
         "サイズ",
-        "A",
-        "B",
-        "C",
-        "D"
+        "着丈",
+        "身幅",
+        "肩幅",
+        "袖丈"
       ],
 
       rows: [
@@ -830,24 +830,24 @@ const products = {
 
       measurements: [
         {
-          key: "A",
+          key: "総丈",
           label: "総丈"
         },
         {
-          key: "B",
+          key: "ウエスト",
           label: "ウエスト"
         },
         {
-          key: "C",
+          key: "股下",
           label: "股下"
         }
       ],
 
       headers: [
         "サイズ",
-        "A",
-        "B",
-        "C"
+        "総丈",
+        "ウエスト",
+        "股下"
       ],
 
       rows: [

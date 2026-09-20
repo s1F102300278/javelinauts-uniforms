@@ -187,251 +187,338 @@ if (sizeContainer) {
 
     const createMeasurements = (section) => {
 
-      return section.measurements
-        .map(
-          (measurement) => `
+  // ジャベパは図の中に寸法名があるため表示しない
+  if (
+    section.diagram === "hoodie" ||
+    section.diagram === "sweatpants"
+  ) {
+    return "";
+  }
 
-            <div class="measurement-item">
+  return section.measurements
+    .map(
+      (measurement) => `
 
-              <span class="measurement-key">
-                ${measurement.key}
-              </span>
+        <div class="measurement-item">
 
-              <span class="measurement-label">
-                ${measurement.label}
-              </span>
+          <span class="measurement-key">
+            ${measurement.key}
+          </span>
 
-            </div>
+          <span class="measurement-label">
+            ${measurement.label}
+          </span>
 
-          `
-        )
-        .join("");
+        </div>
 
-    };
+      `
+    )
+    .join("");
+
+};
 
         const hoodieDiagram = `
 
-      <div class="size-diagram">
+  <div class="size-diagram">
 
-        <svg
-          viewBox="0 0 320 300"
-          class="javepa-diagram"
-          role="img"
-          aria-label="ジャベパ上 採寸位置"
+    <svg
+      viewBox="0 0 360 330"
+      class="javepa-diagram"
+      role="img"
+      aria-label="ジャベパ上 採寸位置"
+    >
+
+      <!-- 矢印 -->
+      <defs>
+        <marker
+          id="arrow-hoodie"
+          markerWidth="7"
+          markerHeight="7"
+          refX="3.5"
+          refY="3.5"
+          orient="auto-start-reverse"
         >
-
           <path
-            class="javepa-outline"
-            d="
-              M120 75
-              Q125 28 160 28
-              Q195 28 200 75
-              L230 88
-              L278 225
-              L250 236
-              L215 135
-              L215 255
-              L105 255
-              L105 135
-              L70 236
-              L42 225
-              L90 88
-              Z
-            "
+            d="M0,0 L7,3.5 L0,7 Z"
+            class="measure-arrow"
           />
-
-          <path
-            class="javepa-detail"
-            d="
-              M120 75
-              Q135 55 160 55
-              Q185 55 200 75
-            "
-          />
+        </marker>
+      </defs>
 
 
-          <!-- A 着丈 -->
+      <!-- パーカー本体 -->
 
-          <line
-            class="measure-line"
-            x1="230"
-            y1="78"
-            x2="230"
-            y2="255"
-          />
+      <path
+        class="javepa-garment"
+        d="
+          M130 90
+          Q133 45 180 32
+          Q227 45 230 90
 
-          <text
-            class="measure-text"
-            x="245"
-            y="170"
-          >
-            A
-          </text>
+          L258 102
+          L310 250
+          L276 262
+          L240 158
 
+          L240 280
+          L120 280
+          L120 158
 
-          <!-- B 身幅 -->
-
-          <line
-            class="measure-line"
-            x1="106"
-            y1="145"
-            x2="214"
-            y2="145"
-          />
-
-          <text
-            class="measure-text"
-            x="160"
-            y="133"
-            text-anchor="middle"
-          >
-            B
-          </text>
+          L84 262
+          L50 250
+          L102 102
+          Z
+        "
+      />
 
 
-          <!-- C 肩幅 -->
+      <!-- フード内側 -->
 
-          <line
-            class="measure-line"
-            x1="91"
-            y1="87"
-            x2="229"
-            y2="87"
-          />
-
-          <text
-            class="measure-text"
-            x="160"
-            y="76"
-            text-anchor="middle"
-          >
-            C
-          </text>
+      <path
+        class="javepa-garment-detail"
+        d="
+          M130 90
+          Q148 67 180 67
+          Q212 67 230 90
+        "
+      />
 
 
-          <!-- D 袖丈 -->
+      <!-- 裾 -->
 
-          <line
-            class="measure-line"
-            x1="229"
-            y1="94"
-            x2="272"
-            y2="225"
-          />
+      <line
+        class="javepa-garment-detail"
+        x1="120"
+        y1="266"
+        x2="240"
+        y2="266"
+      />
 
-          <text
-            class="measure-text"
-            x="267"
-            y="158"
-          >
-            D
-          </text>
 
-        </svg>
+      <!-- 肩幅 -->
 
-      </div>
+      <line
+        class="measure-line-arrow"
+        x1="103"
+        y1="82"
+        x2="257"
+        y2="82"
+        marker-start="url(#arrow-hoodie)"
+        marker-end="url(#arrow-hoodie)"
+      />
 
-    `;
+      <text
+        class="measure-label"
+        x="180"
+        y="69"
+        text-anchor="middle"
+      >
+        肩幅
+      </text>
 
-        const pantsDiagram = `
 
-      <div class="size-diagram">
+      <!-- 身幅 -->
 
-        <svg
-          viewBox="0 0 280 310"
-          class="javepa-diagram"
-          role="img"
-          aria-label="ジャベパ下 採寸位置"
+      <line
+        class="measure-line-arrow"
+        x1="121"
+        y1="155"
+        x2="239"
+        y2="155"
+        marker-start="url(#arrow-hoodie)"
+        marker-end="url(#arrow-hoodie)"
+      />
+
+      <text
+        class="measure-label"
+        x="180"
+        y="142"
+        text-anchor="middle"
+      >
+        身幅
+      </text>
+
+
+      <!-- 着丈 -->
+
+      <line
+        class="measure-line-arrow"
+        x1="253"
+        y1="107"
+        x2="253"
+        y2="280"
+        marker-start="url(#arrow-hoodie)"
+        marker-end="url(#arrow-hoodie)"
+      />
+
+      <text
+        class="measure-label"
+        x="265"
+        y="198"
+      >
+        着丈
+      </text>
+
+
+      <!-- 袖丈 -->
+
+      <line
+        class="measure-line-arrow"
+        x1="258"
+        y1="103"
+        x2="301"
+        y2="248"
+        marker-start="url(#arrow-hoodie)"
+        marker-end="url(#arrow-hoodie)"
+      />
+
+      <text
+        class="measure-label"
+        x="302"
+        y="169"
+        transform="rotate(73 302 169)"
+      >
+        袖丈
+      </text>
+
+    </svg>
+
+  </div>
+
+`;
+
+
+const pantsDiagram = `
+
+  <div class="size-diagram">
+
+    <svg
+      viewBox="0 0 340 340"
+      class="javepa-diagram"
+      role="img"
+      aria-label="ジャベパ下 採寸位置"
+    >
+
+      <!-- 矢印 -->
+      <defs>
+        <marker
+          id="arrow-pants"
+          markerWidth="7"
+          markerHeight="7"
+          refX="3.5"
+          refY="3.5"
+          orient="auto-start-reverse"
         >
-
           <path
-            class="javepa-outline"
-            d="
-              M75 45
-              L205 45
-              L215 270
-              Q190 280 170 270
-              L140 135
-              L110 270
-              Q90 280 65 270
-              Z
-            "
+            d="M0,0 L7,3.5 L0,7 Z"
+            class="measure-arrow"
           />
+        </marker>
+      </defs>
 
 
-          <!-- ウエスト -->
+      <!-- パンツ本体 -->
 
-          <line
-            class="javepa-detail"
-            x1="75"
-            y1="58"
-            x2="205"
-            y2="58"
-          />
+      <path
+        class="javepa-garment"
+        d="
+          M100 65
+          Q170 55 240 65
 
+          L248 292
 
-          <!-- A 総丈 -->
+          Q224 302 199 292
 
-          <line
-            class="measure-line"
-            x1="230"
-            y1="45"
-            x2="230"
-            y2="272"
-          />
+          L170 158
 
-          <text
-            class="measure-text"
-            x="245"
-            y="165"
-          >
-            A
-          </text>
+          L141 292
+
+          Q116 302 92 292
+
+          Z
+        "
+      />
 
 
-          <!-- B ウエスト -->
+      <!-- ウエスト部分 -->
 
-          <line
-            class="measure-line"
-            x1="76"
-            y1="30"
-            x2="204"
-            y2="30"
-          />
-
-          <text
-            class="measure-text"
-            x="140"
-            y="20"
-            text-anchor="middle"
-          >
-            B
-          </text>
+      <path
+        class="javepa-garment-detail"
+        d="
+          M100 65
+          Q170 74 240 65
+        "
+      />
 
 
-          <!-- C 股下 -->
+      <!-- ウエスト -->
 
-          <line
-            class="measure-line"
-            x1="140"
-            y1="137"
-            x2="170"
-            y2="270"
-          />
+      <line
+        class="measure-line-arrow"
+        x1="101"
+        y1="43"
+        x2="239"
+        y2="43"
+        marker-start="url(#arrow-pants)"
+        marker-end="url(#arrow-pants)"
+      />
 
-          <text
-            class="measure-text"
-            x="170"
-            y="205"
-          >
-            C
-          </text>
+      <text
+        class="measure-label"
+        x="170"
+        y="29"
+        text-anchor="middle"
+      >
+        ウエスト
+      </text>
 
-        </svg>
 
-      </div>
+      <!-- 総丈 -->
 
-    `;
+      <line
+        class="measure-line-arrow"
+        x1="270"
+        y1="65"
+        x2="270"
+        y2="294"
+        marker-start="url(#arrow-pants)"
+        marker-end="url(#arrow-pants)"
+      />
+
+      <text
+        class="measure-label"
+        x="283"
+        y="185"
+      >
+        総丈
+      </text>
+
+
+      <!-- 股下 -->
+
+      <line
+        class="measure-line-arrow"
+        x1="170"
+        y1="158"
+        x2="198"
+        y2="292"
+        marker-start="url(#arrow-pants)"
+        marker-end="url(#arrow-pants)"
+      />
+
+      <text
+        class="measure-label"
+        x="191"
+        y="221"
+      >
+        股下
+      </text>
+
+    </svg>
+
+  </div>
+
+`;
 
         const tops =
       product.size.sections[0];
