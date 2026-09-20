@@ -1584,36 +1584,27 @@ html,
 body {
   margin: 0;
   padding: 0;
+
   width: 100%;
   max-width: 100%;
-
-  overflow-x: hidden;
 }
 
 body.welcome-page {
+  margin: 0;
+
   background: #19194f;
   color: #ffffff;
 
-  width: 100%;
-  max-width: 100%;
-
   overflow-x: hidden;
 }
-
-
-/* ページ全体 */
 
 .welcome {
   position: relative;
 
   width: 100%;
-  max-width: 100%;
-
   min-height: 100vh;
 
   background: #19194f;
-
-  overflow-x: clip;
 }
 
 
