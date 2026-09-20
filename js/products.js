@@ -457,12 +457,12 @@ const products = {
 
 
   /* ========================================
-     黒ユニ 長袖
+     黒金 長袖
   ======================================== */
 
   "black-long": {
 
-    name: "黒ユニ 長袖",
+    name: "黒金 長袖",
 
     required: false,
 
@@ -546,7 +546,7 @@ const products = {
 
   "sleeveless": {
 
-    name: "スリーブレス",
+    name: "黒ピンク スリーブレス",
 
     required: false,
 
@@ -655,39 +655,38 @@ const products = {
 
   },
 
-
   /* ========================================
-     タンクトップ
+     黒ピンク 長袖
   ======================================== */
 
-  "tanktop": {
+  "black-pink-long": {
 
-    name: "タンクトップ",
+    name: "黒ピンク 長袖",
 
     required: false,
 
-    price: "¥4100",
+    price: "¥5500",
 
     images: [
-      "images/uniforms/tanktop1.png",
-      "images/uniforms/tanktop2.png",
-      "images/uniforms/tanktop3.png",
-      "images/uniforms/tanktop4.png",
-      "images/uniforms/tanktop5.png",
-      "images/uniforms/tanktop6.png",
-      "images/uniforms/tanktop7.png",
-      "images/uniforms/tanktop8.png"
-    ],
+  "images/uniforms/black_pink_long1.png",
+  "images/uniforms/black_pink_long2.png",
+  "images/uniforms/black_pink_long3.png",
+  "images/uniforms/black_pink_long4.png",
+  "images/uniforms/black_pink_long5.png",
+  "images/uniforms/black_pink_long6.png",
+  "images/uniforms/black_pink_long7.png",
+  "images/uniforms/black_pink_long8.png"
+],
 
     design:
-      "漆黒を纏うことで、ユニフォーム全体に静かな威圧感を与えた一着。\nゴールドが鮮やかに浮かび上がり、シンプルでありながらひと際目を引く存在感を放つ。\n力強さを前面に出しながらも、洗練されたカラーリングによって品格を失わない。「強さ」と「美しさ」を同時に纏う一着である。",
+      "未定。",
 
     material:
-  "ポリエステル100％\n\n軽量性と耐久性を兼ね備え、競技のために選び抜かれた素材。激しい動きにも追従し、快適な着用感を実現する。\n\nチームの筋肉担当が我こそはとこぞって着用する姿は、必死に羽を広げる孔雀のの姿を想起させる。\n男女問わず肩を出して躍動する姿は最高にかっこいい。\nこのデザインのスリーブレスも対応可のため、ぜひとも購入して身を包んでほしい。",
+  "ポリエステル100％\n\n軽量性と耐久性を兼ね備え、競技のために選び抜かれた素材。激しい動きにも追従し、快適な着用感を実現する。\n\nちょけ未定",
 
     size: {
 
-  type: "tanktop",
+  type: "long-shirt",
 
   measurements: [
     {
@@ -697,25 +696,141 @@ const products = {
     {
       key: "B",
       label: "着丈"
+    },
+    {
+      key: "C",
+      label: "袖丈"
     }
   ],
 
   headers: [
     "サイズ",
     "A",
-    "B"
+    "B",
+    "C"
   ],
 
   rows: [
-    ["XS", "94", "69"],
-    ["S", "97", "71"],
-    ["M", "104", "74"],
-    ["L", "107", "76"],
-    ["XL", "109", "79"],
-    ["2XL", "112", "81"]
+    ["XS", "91.5", "68.5", "58.5"],
+    ["S", "96.5", "71.0", "61.0"],
+    ["M", "101.5", "74.0", "62.0"],
+    ["L", "106.5", "76.0", "64.5"],
+    ["XL", "111.5", "79.0", "66.0"],
+    ["2XL", "116.5", "81.0", "67.0"]
   ],
 
   unit: "cm"
+
+},
+
+    reviews: [
+      {
+    name: "小松優之介[#25]",
+    rating: 5,
+    comment: "未定"
+  },
+  {
+    name: "川中日翔[#90]",
+    rating: 5,
+    comment: "未定"
+  }
+    ]
+
+  },
+
+
+  /* ========================================
+     タンクトップ
+  ======================================== */
+
+  "tanktop": {
+
+    name: "黒金 スリーブレス",
+
+    required: false,
+
+    price: "¥4100",
+
+    images: [
+  "images/uniforms/black_gold_sleeveless1.png",
+  "images/uniforms/black_gold_sleeveless2.png",
+  "images/uniforms/black_gold_sleeveless3.png",
+  "images/uniforms/black_gold_sleeveless4.png",
+  "images/uniforms/black_gold_sleeveless5.png",
+  "images/uniforms/black_gold_sleeveless6.png",
+  "images/uniforms/black_gold_sleeveless7.png",
+  "images/uniforms/black_gold_sleeveless8.png"
+],
+
+    design:
+      "漆黒を纏うことで、ユニフォーム全体に静かな威圧感を与えた一着。\nゴールドが鮮やかに浮かび上がり、シンプルでありながらひと際目を引く存在感を放つ。\n力強さを前面に出しながらも、洗練されたカラーリングによって品格を失わない。「強さ」と「美しさ」を同時に纏う一着である。",
+
+    material:
+  "ポリエステル100％\n\n軽量性と耐久性を兼ね備え、競技のために選び抜かれた素材。激しい動きにも追従し、快適な着用感を実現する。\n\nチームの筋肉担当が我こそはとこぞって着用する姿は、必死に羽を広げる孔雀のの姿を想起させる。\n男女問わず肩を出して躍動する姿は最高にかっこいい。",
+
+    size: {
+
+  type: "sleeveless",
+
+  measurements: [
+    {
+      key: "A",
+      label: "身幅"
+    },
+    {
+      key: "B",
+      label: "着丈"
+    }
+  ],
+
+  groups: [
+
+    {
+      name: "MEN'S",
+
+      headers: [
+        "サイズ",
+        "A",
+        "B"
+      ],
+
+      rows: [
+        ["XS", "48.3", "67.3"],
+        ["S", "50.8", "69.9"],
+        ["M", "53.3", "72.4"],
+        ["L", "55.9", "74.9"],
+        ["XL", "58.4", "77.5"],
+        ["2XL", "61.0", "80.0"],
+        ["3XL", "63.5", "82.6"],
+        ["4XL", "66.0", "85.1"]
+      ]
+    },
+
+    {
+      name: "WOMEN'S",
+
+      headers: [
+        "サイズ",
+        "A",
+        "B"
+      ],
+
+      rows: [
+        ["XS", "43.2", "62.2"],
+        ["S", "45.7", "64.8"],
+        ["M", "48.3", "67.3"],
+        ["L", "50.8", "69.9"],
+        ["XL", "53.3", "72.4"],
+        ["2XL", "55.9", "74.9"]
+      ]
+    }
+
+  ],
+
+  unit: "cm",
+
+  note:
+    "メーカー表記（inch）をcmに換算し、小数第1位に丸めています。"
 
 },
 
@@ -889,3 +1004,5 @@ const products = {
   }
 
 };
+
+
