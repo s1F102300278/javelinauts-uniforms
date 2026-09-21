@@ -2218,3 +2218,153 @@ body.welcome-page {
     transform 0.6s ease,
     visibility 0s;
 }
+
+
+/* ========================================
+   ARCHIVE
+======================================== */
+
+.archive-section {
+  width: 100%;
+  margin-top: 65px;
+}
+
+.archive-header {
+  width: calc(100% - 40px);
+  margin: 0 auto 32px;
+}
+
+.archive-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.archive-title {
+  color: #19194f;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.archive-label {
+  color: #999;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+}
+
+.archive-line {
+  width: 100%;
+  height: 1px;
+  margin-top: 12px;
+  background: #ddd;
+}
+
+.archive-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+}
+
+/* ========================================
+   ARCHIVE PRODUCT INFO
+======================================== */
+
+.archive-product-info {
+  width: 100%;
+  padding: 34px 24px 70px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+
+/* 商品名 */
+.archive-product-info h1 {
+  margin: 0;
+
+  color: #191919;
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+}
+
+
+/* 非売品 */
+.archive-not-for-sale {
+  display: inline-block;
+
+  margin: 11px 0 0;
+  padding: 4px 8px;
+
+  border: 1px solid #aaa;
+
+  color: #777;
+
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.12em;
+}
+
+
+/* アイテム説明全体 */
+.archive-description {
+  margin-top: 52px;
+}
+
+
+/* ITEM DESCRIPTION */
+.archive-description-heading {
+  display: flex;
+  align-items: center;
+
+  color: #777;
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+
+/* 見出し下の線 */
+.archive-description-line {
+  width: 100%;
+  height: 1px;
+
+  margin: 13px 0 25px;
+
+  background: #dedede;
+}
+
+
+/* 説明本文 */
+.archive-description p {
+  margin: 0;
+
+  color: #555;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 2;
+  letter-spacing: 0.035em;
+
+  white-space: pre-line;
+}
+
+@media (min-width: 768px) {
+
+  .archive-product-info {
+    padding: 45px 40px 90px;
+  }
+
+  .archive-product-info h1 {
+    font-size: 27px;
+  }
+
+}
