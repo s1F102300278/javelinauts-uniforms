@@ -13,7 +13,7 @@ const archiveProducts = {
 
 
   "daberinauts": {
-    name: "だべりのーつ",
+    name: "だべりのーつユニ",
 
     images: [
       "images/uniforms/purple1.png",
