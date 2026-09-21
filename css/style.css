@@ -2164,3 +2164,57 @@ body.welcome-page {
 .black-pink-sleeveless-name {
   transform: translateY(-5px);
 }
+
+.number-25-note {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.number-25-secret {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+
+  transform: translate(-50%, -50%) translateY(8px);
+
+  width: max-content;
+  max-width: calc(100% - 48px);
+  padding: 14px 20px;
+
+  background: rgba(235, 235, 235, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  border-radius: 4px;
+
+  color: #b3261e;
+
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-align: center;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    visibility 0s linear 0.6s;
+}
+.number-25-secret.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translate(-50%, -50%) translateY(0);
+
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease,
+    visibility 0s;
+}

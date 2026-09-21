@@ -2337,3 +2337,35 @@ if (comingSoonButton) {
   );
 
 }
+
+/* ========================================
+   NUMBER 25 SECRET
+======================================== */
+
+const number25Note =
+  document.getElementById("number-25-note");
+
+const number25Secret =
+  document.getElementById("number-25-secret");
+
+if (number25Note && number25Secret) {
+
+  let secretTimer;
+
+  number25Note.addEventListener("click", () => {
+
+    clearTimeout(secretTimer);
+
+    number25Secret.classList.remove("show");
+
+    requestAnimationFrame(() => {
+      number25Secret.classList.add("show");
+    });
+
+    secretTimer = setTimeout(() => {
+      number25Secret.classList.remove("show");
+    }, 1800);
+
+  });
+
+}
