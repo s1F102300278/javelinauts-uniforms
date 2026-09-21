@@ -8,19 +8,19 @@ const archiveProducts = {
       "images/uniforms/blue-tanktop2.png"
     ],
 
-    description: `ここに青ユニ タンクトップの説明文が入ります。`
+    description: `青ユニのタンクトップバージョン。とにかく人気がない。`
   },
 
 
   "daberinauts": {
-    name: "だべりのーつユニ",
+    name: "だべりのーつ",
 
     images: [
       "images/uniforms/purple1.png",
       "images/uniforms/purple2.png"
     ],
 
-    description: `ここにだべりのーつユニの説明文が入ります。`
+    description: `11期生の同期ユニ。タカマさんという先輩がおもらしをしたとユニフォームに刻まれている。真偽は定かではない。`
   },
 
 
