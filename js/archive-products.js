@@ -8,7 +8,7 @@ const archiveProducts = {
       "images/uniforms/blue-tanktop2.png"
     ],
 
-    description: `青ユニのタンクトップバージョン。部屋着としては優秀だが、とにかく人気がない。公式戦には一応出れるはず。`
+    description: `ここに青ユニ タンクトップの説明文が入ります。`
   },
 
 
@@ -20,7 +20,31 @@ const archiveProducts = {
       "images/uniforms/purple2.png"
     ],
 
-    description: `じゃべ11期生の同期ユニ。タカマさんという先輩がおもらししたことがユニに刻まれている。真偽は定かではない。`
+    description: `ここにだべりのーつユニの説明文が入ります。`
+  },
+
+
+  "tanaka": {
+    name: "田中ユニ",
+
+    images: [
+      "images/uniforms/green1.png",
+      "images/uniforms/green2.png"
+    ],
+
+    description: `12期生の同期ユニ。なぜか14期生の「田中」をテーマにしている。近くで見るとなかなかグロテスクだ。`
+  },
+
+
+  "kurazushi": {
+    name: "くら寿司ユニ",
+
+    images: [
+      "images/uniforms/kurazushi1.png",
+      "images/uniforms/kurazushi2.png"
+    ],
+
+    description: `昼の12時に南浦和に集いし者たち。\n大輔さんに怯える日々を送りながらめげずにディスクを投げてきた。\n彼らを下手だと罵っても構わない。\nしかし勝負になれば\n最後に笑っているのは彼らだろう。\n\n14期生の同期ユニである。なぜ作ったのかは本人たちも分かっていない。`
   }
 
 };
