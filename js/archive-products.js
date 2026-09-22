@@ -45,6 +45,19 @@ const archiveProducts = {
     ],
 
     description: `昼の12時に南浦和に集いし者たち。\n大輔さんに怯える日々を送りながらめげずにディスクを投げてきた。\n彼らを下手だと罵っても構わない。\nしかし勝負になれば\n最後に笑っているのは彼らだろう。\n\n11期生の同期ユニである。なぜ作ったのかは本人たちも分かっていない。\n黒の長袖とパンツも存在している。長袖は結構かっこいい。`
-  }
+  },
+
+  "kitz": {
+  name: "キッズユニ",
+
+  images: [
+    "images/uniforms/kitz1.png",
+    "images/uniforms/kitz2.png",
+    "images/uniforms/kitz3.png",
+    "images/uniforms/kitz4.png"
+  ],
+
+  description: `10期生の同期ユニ。詳細は聞いていないから分からないが、ポケモンを連想させるデザインだ。長袖とパンツも存在する。`
+}
 
 };
